@@ -7,12 +7,12 @@ import ThingToDo from './ThingToDo';
 const Counter = (props) => {
   console.log("Props from Counter: ", props)
   let {incrementFromStore} = props;
-  
+
     return (
       <div id='container'>
         <div id='counter'>
           <h1>{props.countFromStore}</h1>
-          <button onClick={() => {incrementFromStore()}}>Count with Activities</button>
+          <button onClick={() => {incrementFromStore()}}>Click to Count</button>
           <ThingToDo />
         </div>
       </div>
