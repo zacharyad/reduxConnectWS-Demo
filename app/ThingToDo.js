@@ -1,13 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import {goGetApiInfoThunk} from './store'
+import {goGetApiInfoThunk} from './reducers/todo.js'
 
 const ThingToDo = (props) => {
     console.log("Props from ThingsToDo: ", props)
+
     return ( 
         <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
             <hr />
-            <p>{props.toDo.activity}</p>
+            <p>this is suppose to be an activity</p>
             {/* when clicked this will use a thunk to get to an api for activities */}
             <button onClick={() => props.getActivity()}>Click to get an activity</button>
         </div>
@@ -15,9 +16,10 @@ const ThingToDo = (props) => {
 }
 
 // getter of data from a store
-let mapStateToProps = (state) => {
+let mapStateToProps = ({todo}) => {
+    console.log("STATE: ", todo)
     return {
-        toDo: state.toDo,
+        toDo: todo,
     }
   }
 

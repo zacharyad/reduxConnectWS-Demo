@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store, {increment, getTodoThunk} from './store'; // imported for you already
+import store from "./store"
+import {increment } from './reducers/count.js'
+
 import {Provider, connect} from 'react-redux'
 import ThingToDo from './ThingToDo';
 
@@ -20,9 +22,10 @@ const Counter = (props) => {
 }
 
 // getter of data from a store
-let mapStateToShowUpOnPropsOnThisComponent = (state) => {
+let mapStateToShowUpOnPropsOnThisComponent = ({counter}) => {
+  console.log("State from count: ",counter)
   return {
-    countFromStore: state.count,
+    countFromStore: counter,
   }
 }
 
