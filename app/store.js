@@ -4,7 +4,7 @@ import reduxLogger from 'redux-logger';
 import thunkMiddleware from 'redux-thunk'
 
 let api_call = 'https://www.boredapi.com/api/activity'
-//import axios from 'axios';
+import axios from 'axios';
 
 // WE NEED THE THUNK LIBRARY - redux-thunk
 
@@ -42,6 +42,7 @@ export let goGetApiInfoThunk = () => {
     dispatch(gotToDo(data));
   }
 }
+
 
 
 // reducer
