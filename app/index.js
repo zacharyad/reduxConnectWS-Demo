@@ -6,7 +6,8 @@ import {Provider, connect} from 'react-redux'
 
 const Counter = (props) => {
   console.log("Props: ", props)
-  let {incrementFromStore} = props
+  let {incrementFromStore} = props;
+  
     return (
       <div id='container'>
         <div id='counter'>
