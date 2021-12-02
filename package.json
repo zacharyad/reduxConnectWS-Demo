@@ -9,11 +9,14 @@
     "start": "webpack-dev-server"
   },
   "dependencies": {
+    "axios": "^0.24.0",
+    "babel-polyfill": "^6.26.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-redux": "^7.2.6",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.4.1",
     "webpack": "^4.39.2",
     "webpack-dev-server": "^3.8.0"
   },

@@ -1,19 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import store, {increment} from './store'; // imported for you already
+import store, {increment, getTodoThunk} from './store'; // imported for you already
 import {Provider, connect} from 'react-redux'
-
+import ThingToDo from './ThingToDo';
 
 const Counter = (props) => {
-  console.log("Props: ", props)
+  console.log("Props from Counter: ", props)
   let {incrementFromStore} = props;
   
     return (
       <div id='container'>
         <div id='counter'>
           <h1>{props.countFromStore}</h1>
-          <button onClick={() => incrementFromStore(idFromUrlsBar)}>Increment</button>
-          <AnotherCompontnentYouWrote />
+          <button onClick={() => {incrementFromStore()}}>Count with Activities</button>
+          <ThingToDo />
         </div>
       </div>
     );
@@ -31,7 +31,7 @@ let mapStateToShowUpOnPropsOnThisComponent = (state) => {
 //Setter of date into the store
 let mapDispatchToShowUpOnPropsOnThisComponent = (dispatch) => {
   return {
-    incrementFromStore: () => dispatch(increment())
+    incrementFromStore: () => dispatch(increment()),
   }
 }
 
