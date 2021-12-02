@@ -1,7 +1,11 @@
 require("babel-polyfill");
 import {createStore, applyMiddleware} from 'redux';
 import reduxLogger from 'redux-logger';
+import thunkMiddleware from 'redux-thunk'
+
 let api_call = 'https://www.boredapi.com/api/activity'
+//import axios from 'axios';
+
 // WE NEED THE THUNK LIBRARY - redux-thunk
 
 //WE NEED an AJAX library
@@ -20,14 +24,24 @@ export const increment = () => {
   };
 };
 
-const gotToDo = (toDo) => {
+const gotToDo = (toDoObj) => {
   return {
     type: GOT_TO_DO, 
-    payload: toDo
+    payload: toDoObj
   };
 };
 
 // Thunk Creator AREA
+
+export let goGetApiInfoThunk = () => {
+  return async (dispatch) => {
+    // we need use axios to get an activity
+    let {data} = await axios.get(api_call)
+
+    console.log(" GetState ", axios)
+    dispatch(gotToDo(data));
+  }
+}
 
 
 // reducer
@@ -53,6 +67,6 @@ const reducer = (state = initialState, action) => {
   }
 };
 
-const store = createStore(reducer, applyMiddleware(reduxLogger));
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(thunkMiddleware, reduxLogger));
 
 export default store;
